@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Tires</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Brand</th>
+                <th>Size</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tire in tires %}
+            <tr>
+                <td>{{ tire.type }}</td>
+                <td>{{ tire.brand }}</td>
+                <td>{{ tire.size }}</td>
+                <td>{{ tire.date_added }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

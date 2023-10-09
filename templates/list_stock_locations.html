@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Stock Locations</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock Type</th>
+                <th>Shelf</th>
+                <th>Column</th>
+                <th>Row</th>
+                <th>Occupied</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location in locations %}
+            <tr>
+                <td>{{ location.stock_type }}</td>
+                <td>{{ location.shelf }}</td>
+                <td>{{ location.column }}</td>
+                <td>{{ location.row }}</td>
+                <td>{{ location.is_occupied }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    
+    <h3>Inventory Overview</h3>
+    <p>Total Tires: {{ total }}</p>
+    <p>Tires in Inside Stock: {{ inside }}</p>
+    <p>Tires in Outside Stock: {{ outside }}</p>
+    <br>
+
+    <h3>All Tires</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Brand</th>
+                <th>Size</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tire in tires %}
+            <tr>
+                <td>{{ tire.type }}</td>
+                <td>{{ tire.brand }}</td>
+                <td>{{ tire.size }}</td>
+                <td>{{ tire.date_added }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h3>Stock Locations</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock Type</th>
+                <th>Shelf</th>
+                <th>Column</th>
+                <th>Row</th>
+                <th>Occupied</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location in locations %}
+            <tr>
+                <td>{{ location.stock_type }}</td>
+                <td>{{ location.shelf }}</td>
+                <td>{{ location.column }}</td>
+                <td>{{ location.row }}</td>
+                <td>{{ location.is_occupied }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/tires">View All Tires</a>
+    <br>
+    <a href="/stock-locations">View Stock Locations</a>
+</body>
+</html>

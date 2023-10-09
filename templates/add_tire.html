@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a Tire</title>
+</head>
+<body>
+    <form action="{{ url_for('add_new_tire') }}" method="post">
+        <label>Type: <input type="text" name="type"></label><br>
+        <label>Brand: <input type="text" name="brand"></label><br>
+        <label>Size: <input type="text" name="size"></label><br>
+        <input type="submit" value="Add Tire">
+    </form>
+</body>
+</html>
