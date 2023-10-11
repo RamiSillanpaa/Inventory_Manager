@@ -4,22 +4,21 @@
     <title>Move Tire</title>
 </head>
 <body>
-    <form method="post">
-        <label>Select Tire: 
+    <form action="{{ url_for('move_tire.move_tire') }}" method="post">
+        <label>Select Tire:
             <select name="tire_id">
                 {% for tire in tires %}
-                <option value="{{ tire.id }}">{{ tire.type }} - {{ tire.brand }} - {{ tire.size }}</option>
+                <option value="{{ tire.tire_id }}">{{ tire.type }} - {{ tire.brand }} - {{ tire.size }}</option>
                 {% endfor %}
             </select>
-        </label>
-        <br>
-        <label>Select Destination: 
+        </label><br>
+        <label>Move to:
             <select name="destination">
-                <option value="inside">Inside Stock</option>
-                <option value="outside">Outside Stock</option>
+                {% for location in locations %}
+                <option value="{{ location.name }}">{{ location.name }}</option>
+                {% endfor %}
             </select>
-        </label>
-        <br>
+        </label><br>
         <input type="submit" value="Move Tire">
     </form>
 </body>

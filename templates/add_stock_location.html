@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add a Stock Location</title>
+    <title>Add Stock Location</title>
 </head>
 <body>
-    <form method="post">
-        <label>Stock Type: <input type="text" name="stock_type"></label><br>
-        <label>Shelf: <input type="text" name="shelf"></label><br>
-        <label>Column: <input type="text" name="column"></label><br>
-        <label>Row: <input type="text" name="row"></label><br>
-        <input type="submit" value="Add Location">
+    <form action="{{ url_for('add.add_stock_location') }}" method="post">
+        <label>Location Name: <input type="text" name="location_name"></label><br>
+        <input type="submit" value="Add Stock Location">
     </form>
 </body>
 </html>

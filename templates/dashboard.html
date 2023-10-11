@@ -8,8 +8,6 @@
     
     <h3>Inventory Overview</h3>
     <p>Total Tires: {{ total }}</p>
-    <p>Tires in Inside Stock: {{ inside }}</p>
-    <p>Tires in Outside Stock: {{ outside }}</p>
     <br>
 
     <h3>All Tires</h3>
@@ -34,24 +32,20 @@
         </tbody>
     </table>
     
-    <h3>Stock Locations</h3>
+    <h3>Lista käytettävistä hyllypaikoista</h3>
     <table>
         <thead>
             <tr>
-                <th>Stock Type</th>
-                <th>Shelf</th>
-                <th>Column</th>
-                <th>Row</th>
-                <th>Occupied</th>
+                <th>Hyllypaikka</th>
+                <th>Sisävarasto</th>
+                <th>Käytössä</th>
             </tr>
         </thead>
         <tbody>
             {% for location in locations %}
             <tr>
-                <td>{{ location.stock_type }}</td>
-                <td>{{ location.shelf }}</td>
-                <td>{{ location.column }}</td>
-                <td>{{ location.row }}</td>
+                <td>{{ location.name }}</td>
+                <td>{{ location.is_flexible }}</td>
                 <td>{{ location.is_occupied }}</td>
             </tr>
             {% endfor %}

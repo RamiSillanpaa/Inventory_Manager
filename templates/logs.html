@@ -15,9 +15,10 @@
         <tbody>
             {% for log in logs %}
             <tr>
-                <td>{{ log.id }}</td>
-                <td>{{ log.action }}</td>
+                <td>{{ log.log_id }}</td>
+                <td>{{ log.action_type }}</td>
                 <td>{{ log.date }}</td>
+                <td>{{ log.details }}</td>
             </tr>
             {% endfor %}
         </tbody>
