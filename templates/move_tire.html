@@ -19,6 +19,13 @@
                 {% endfor %}
             </select>
         </label><br>
+        <label>Quantity: 
+            <select name="quantity">
+                {% for number in range(1, 21) %}  <!-- Assuming a max of 20 tires for illustration -->
+                    <option value="{{ number }}">{{ number }}</option>
+                {% endfor %}
+            </select>
+        </label>        
         <input type="submit" value="Move Tire">
     </form>
 </body>

@@ -11,6 +11,7 @@ move_tire_blueprint = Blueprint('move_tire', __name__, url_prefix='/tires')
 @move_tire_blueprint.route('/move', methods=['GET', 'POST'])
 def move_tire():
     if request.method == 'POST':
+        quantity = int(request.form['quantity'])
         tire_id = request.form['tire_id']
         new_location_name = request.form['destination']
         
@@ -18,11 +19,9 @@ def move_tire():
         current_location = TireStock.query.filter_by(tire_id=tire_id).first()
         
         if current_location:
-            # Remove tire from current location
-            remove_tire_from_location(tire_id, current_location.location_id)
-        
-        # Add tire to the new location
-        add_tire_to_stock(tire_id, new_location_name, 1)  # Assuming 1 as quantity. Modify if needed.
+            move_tires(tire_id, current_location.location_name, new_location_name, quantity)
+        else:
+            add_tire_to_stock(tire_id, new_location_name, quantity)
 
         return redirect(url_for('dashboard.dashboard'))
 
